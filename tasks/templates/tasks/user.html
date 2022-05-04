@@ -1,0 +1,37 @@
+{%extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{user.nome}}{% endblock %}
+
+
+{%block content %}
+
+<div id="user">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{% static 'img\novas_logo\honda_logo.fw.png' %}">
+                <div class="texto-nome-email">
+                    <h4> {{user.username}} </h4>
+                    <h4> {{user.email}} </h4>
+                    {% if user.is_superuser %}
+                    <h4> ele ehh </h4>
+                    {% else %}
+                    <h4> ele n ehh </h4>
+                    {% endif %}
+                </div>
+                <a href="/accounts/logout">
+                    <input class="login-btn" value="Sair">
+                </a>
+            </div>
+            <div class="col-md-6">
+                <h3>
+                    Historico:
+                </h3>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+{%endblock%}

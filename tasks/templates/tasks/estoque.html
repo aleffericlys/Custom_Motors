@@ -1,0 +1,163 @@
+{%extends 'base.html' %}
+{% load static %}
+
+{% block title %}Estoque{% endblock %}
+
+
+{%block content %}
+	<div class="container-fluid">
+	<!-- cabeçario -->
+		<!-- Filtros -->
+		<div id="filters">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-2">
+						<div class="filtertext"> 
+							<li><a href="?search=">Tudo</a></li>
+							<h4>Motos</h4>
+							<div class="col align-self-end">
+								<li><a href="?search=harley">Harley</a></li>
+								<li><a href="?search=honda">Honda</a></li>
+								<li><a href="?search=bmw">BMW</a></li>
+								<li><a href="?search=dafra">Dafra</a></li>
+								<!-- <li><a href="?search=yamaha">Yamaha</a></li> -->
+							</div>
+						</div>
+						<div class="filtertext"> 
+							<h4>Acessórios</h4>
+							<div class="col align-self-end">
+								<li><a href="?search=capacete">Capacetes</a></li>
+								<li><a href="?search=macacão">Macacões</a></li>
+								<li><a href="?search=jaqueta">Jaquetas</a></li>
+								<li><a href="?search=calça">Calças</a></li>
+								<li><a href="?search=luva">Luvas</a></li>
+							</div>
+						</div>
+						<div class="filtertext"> 
+							<h4>Ferramentas</h4>
+							<div class="col align-self-end">
+								<li><a href="?search=biela">Chaves Biela</a></li>
+								<li><a href="?search=ferramentas">Kits</a></li>
+								<li><a href="?search=rampa">Pampas</a></li>
+							</div>
+						</div>
+					</div>
+
+					{% if motos %}
+					<div class="col-md-8">
+						<div class="produto-img">
+						<h4>Nossas Motos</h4>
+							<div class="row">
+								{% for motos in motos %}
+								<div class="col-md-4"><a href="moto/{{motos.id}}">
+									
+									<img src="{{ motos.imagen.url }}">
+									<p>{{ motos.nome }}</p>
+									<p>R${{ motos.valor }}</p>
+								</a>
+								</div>
+								{% endfor %} 
+							</div>
+						</div>
+						<div class="paginator">
+							<div class="step-links">
+								<span>
+									{% if motos.has_previous %}
+									<a href="?page={{motos.previous_page_number}}"><i class="fas fa-arrow-left"></i></a>	
+									{% endif %}
+									
+									{% if motos.paginator.num_pages != 1 %}
+									<span class="current">
+										{{ motos.number }} de {{ motos.paginator.num_pages }}
+									</span>
+									{% endif %}
+
+									{% if motos.has_next %}
+										<a href="?page={{motos.next_page_number}}"><i class="fas fa-arrow-right"></i></a>	
+									{% endif %}
+								</span>
+							</div>
+						</div>
+					</div>
+					{% endif %}
+
+					{% if acess %}
+					<div class="col-md-8" id="andar">
+						<div class="produto-img">
+							<h4>Nossos Acessorios</h4>
+							<div class="row">
+								{% for acess in acess %}
+								<div class="col-md-4"><a href="acessorio/{{acess.id}}/{{ acess.tipo }}">
+									
+									<img src="{{ acess.imagen.url }}">
+									<p>{{ acess.nome }}</p>
+									<p>R${{ acess.valor }}</p>
+								</a>
+								</div>
+								{% endfor %} 
+							</div>
+						</div>
+						<div class="paginator">
+							<div class="step-links">
+								<span>
+									{% if acess.has_previous %}
+									<a href="?page={{acess.previous_page_number}}"><i class="fas fa-arrow-left"></i></a>	
+									{% endif %}
+									
+									{% if acess.paginator.num_pages != 1 %}
+									<span class="current">
+										{{ acess.number }} de {{ acess.paginator.num_pages }}
+									</span>
+									{% endif %}
+
+									{% if acess.has_next %}
+										<a href="?page={{acess.next_page_number}}"><i class="fas fa-arrow-right"></i></a>	
+									{% endif %}
+								</span>
+							</div>
+						</div>
+					</div>
+					{% endif %}
+
+					{% if ferr %}
+					<div class="col-md-8" id="andar">
+						<div class="produto-img">
+							<h4>Nossas ferramentas</h4>
+							<div class="row">
+								{% for ferr in ferr %}
+								<div class="col-md-4"><a href="/ferramenta/{{ferr.id}}/{{ferr.tipo}}">
+									
+									<img src="{{ ferr.imagen.url }}">
+									<p>{{ ferr.nome }}</p>
+									<p>R${{ ferr.valor }}</p>
+								</a>
+								</div>
+								{% endfor %} 
+							</div>
+						</div>
+						<div class="paginator">
+							<div class="step-links">
+								<span>
+									{% if ferr.has_previous %}
+									<a href="?page={{ferr.previous_page_number}}"><i class="fas fa-arrow-left"></i></a>	
+									{% endif %}
+									
+									{% if ferr.paginator.num_pages != 1 %}
+									<span class="current">
+										{{ ferr.number }} de {{ ferr.paginator.num_pages }}
+									</span>
+									{% endif %}
+
+									{% if ferr.has_next %}
+										<a href="?page={{ferr.next_page_number}}"><i class="fas fa-arrow-right"></i></a>	
+									{% endif %}
+								</span>
+							</div>
+						</div>
+					</div>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

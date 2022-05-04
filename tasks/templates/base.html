@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{%block title %}{%endblock%}</title>
+	<!-- Fonte -->
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+	<!-- Script-->
+		<script
+		src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+		crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<!-- Font awesome -->
+	<script src="https://kit.fontawesome.com/4873db1fa7.js" crossorigin="anonymous"></script>
+	<!-- Progress Bar -->
+	<script src="{% static 'js/progressbar.min.js' %}"></script>
+	<!-- Parallax -->
+	<script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<!-- Navbar -->
+		<header>
+			<div class="container" id="nav-container">
+				<nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+					<a class="navbar-brand" href="/">
+						<img id="logo" src="{% static 'img/logos/logo.fw.png' %}" alt="C_Motors">
+					</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links"
+					aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class ="collapse navbar-collapse justify-content-end" id="navbar-links">
+						<div class="navbar-nav">
+							<div class="search-form">
+								<form method="GET" id="search-form">
+									<input type="search" class="form-search" placeholder="O que procuras" name="search" value="{{ request.GET.search }}">
+									<i class="fas fa-search" id="search-btn"></i>
+									
+								</form>
+							</div>
+							<a class="new-item nav-link" id="item01-menu" href="/">HOME</a>
+							<!--<a class="new-item nav-link" id="item03-menu" href="#">PARCEIROS</a>-->
+							<a class="new-item nav-link" id="item05-menu" href="/catalogo">CATALOGO</a>
+							<a class="new-item nav-link" id="item04-menu" href="/contato">CONTATO</a>
+							<a class="new-item nav-link" id="item05-menu" href="/sobre">SOBRE</a>
+							{% if user.is_authenticated %}
+							<!-- <a class="new-item nav-link" id="item03-menu" href="/compras">CARRNHO</a> -->
+							<a class="new-item nav-link" id="item03-menu" href="/user">{{user.username}}</a>
+							<a class="new-item nav-link" id="nav-login" href="/accounts/logout">SAIR</a>
+							{% else %}
+							<a class="new-item nav-link" id="nav-login" href="/accounts/login">LOGIN</a>
+
+							{% endif %}
+						</div>
+					</div>
+				</nav>
+			</div>
+		</header>
+		<main>
+			{% block content %}
+			
+			{% endblock %}
+		</main>
+		<footer>
+			<div id="copy-area">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<p>Desenvolvido por <a href="https://github.com/Murakamy-y/Pweb_II" target="_blank">Custom Enterprise</a> &copy; 2022</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- scripts -->
+	</div>
+	<script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html>

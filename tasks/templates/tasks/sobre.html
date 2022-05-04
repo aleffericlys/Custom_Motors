@@ -1,0 +1,86 @@
+{%extends 'base.html' %}
+{% load static %}
+
+{% block title %}Sobre{% endblock %}
+
+
+{%block content %}
+
+<div id="about-area">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<h3 class="main-title">Sobre a Custom Motors</h3>
+			</div>
+			<div class="col-6">
+				<img class="img-fluid" src="{% static 'img/MOTOS/about.fw.png' %}" alt="agencia hDC">
+			</div>
+			<div class="col-md-6">
+				<h3 class="about-title">Falar os pontos positivos do projeto</h3>
+				<p>A Custon Motors busca facilitar o acesso ao mundo do motociclismo, 
+					unindo vendedor e comprador, pois independente da finalidade, 
+					compra ou venda, ambos são amantes do motociclismo.</p>
+				<ul id="about-list">
+					<li><i class="fas fa-check"></i> Fácil acesso ao produto desejado;</li>
+					<li><i class="fas fa-check"></i> Frete para todo o Brasil(grátis para Norte e Nordeste);</li>
+					<li><i class="fas fa-check"></i> Suporte ao usuário;</li>
+					<li><i class="fas fa-check"></i> Trabalhamos com produtos sob encomenda.</li>
+				</ul>
+			</div>						
+		</div>
+	</div>
+</div>
+<div id="team-area">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<h3 class="main-title">Nosso time</h3>
+			</div>
+			<div class="col-md-3">
+				<a href="https://github.com/Murakamy-y">
+					<div class="card">
+						<img src="{% static 'img/profiles/gagagaguinho2.fw.png' %}" class="card-img-top" alt="imagem de perfil 1">
+						<div class="card-body">
+							<h5 class="card-title">Artur Hildegardo</h5>
+							<p class="card-text">Front-end</p>
+						</div>
+					</div>
+				</a>
+			</div>
+			<div class="col-md-3">
+				<a href="https://github.com/aleffericlys">
+					<div class="card">
+						<img src="{% static 'img/profiles/Patolino2.fw.png' %}" class="card-img-top" alt="imagem de perfil 1">
+						<div class="card-body">
+							<h5 class="card-title">Aleff Ériclys</h5>
+							<p class="card-text">Back-end</p>
+						</div>
+					</div>
+				</a>
+			</div>
+			<div class="col-md-3">
+				<a href="https://github.com/vikarolina">
+					<div class="card">
+						<img src="{% static 'img/profiles/lola2.fw.png' %}" class="card-img-top" alt="imagem de perfil 1">
+						<div class="card-body">
+							<h5 class="card-title">Vitoria Karolina</h5>
+							<p class="card-text">Java script</p>
+						</div>
+					</div>
+				</a>
+			</div>
+			<div class="col-md-3">
+				<a href="https://github.com/JansenEXE">
+					<div class="card">
+						<img src="{% static 'img/profiles/frajola2.fw.png' %}" class="card-img-top" alt="imagem de perfil 1">
+						<div class="card-body">
+							<h5 class="card-title">Lucas Jansem</h5>
+							<p class="card-text">Documentação</p>
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+{%endblock%}

@@ -1,0 +1,51 @@
+{%extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} Login Custom Motors {% endblock %}
+
+
+{%block content %}
+
+<div id="login">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h3 class="login">Da estrada para o mundo.</h3>
+			</div>
+			<div class="col-md-6" id="login-form">
+				<p>Adquira já o seu sonho</p>
+				<form action="">
+					<div class="login__grupo">
+						<input class="form-control"  id="email_" type="email" name="email_" placeholder="E-mail" required>
+					</div>
+					<div class="login__grupo">
+						<input class="form-control" id="senha_" type="password" name="senha_" placeholder="Senha" required>
+					</div>
+					<input type="submit" class="login-btn" value="Login">
+				</form>
+			</div>
+			<div class="col-md-6" id="login-form">
+				<p>Ainda não tem cadastro? Cadastrar-se logo</p>
+				<form action="">
+					<div class="login__grupo">
+						<input class="form-control" id="login" type="text" name="login" placeholder="Login" required>
+					</div>
+				
+					<div class="login__grupo">
+						<input class="form-control" id="email" type="email" name="email" placeholder="E-mail" required>
+					</div>
+				
+					<div class="login__grupo">
+						<input class="form-control" id="senha1" type="password" name="senha1" placeholder="Senha" required>
+					</div>
+				
+					<div class="login__grupo">
+						<input class="form-control" id="senha2" type="password" name="senha2" placeholder="Confirmar Senha" required>
+					</div>
+					<input type="submit" class="login-btn" value="Cadastrar-se">
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+	{%endblock%}

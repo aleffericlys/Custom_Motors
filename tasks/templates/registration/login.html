@@ -1,0 +1,73 @@
+{%extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} Login Custom Motors {% endblock %}
+
+
+{%block content %}
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+            <div class="card  auth-card">
+                <div class="card-body">
+                    <h4 class="card-title text-center">loggin</h4>
+
+                    <form method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="next" value="{{ next }}">
+            
+                        {{ form|crispy }} <!-- estilo do botstrap -->
+    
+                        <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                    </form>
+                    <p class="change-form-p"> Quer criar uma conta? <a href="/accounts/register" target="_blank">Clique aqui!</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--
+<div id="login">
+    <div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h3 class="login">Da estrada para o mundo.</h3>
+			</div>
+			<div class="col-md-6" id="login-form">
+				<p>Adquira já o seu sonho</p>
+				<form action="">
+					<div class="login__grupo">
+						<input class="form-control"  id="email_" type="text" name="email_" placeholder="login" required>
+					</div>
+					<div class="login__grupo">
+						<input class="form-control" id="senha_" type="password" name="senha_" placeholder="Senha" required>
+					</div>
+					<button type="submit" class="btn btn-primary btn-block">Entrar</button>
+				</form>
+			</div>
+			<div class="col-md-6" id="login-form">
+				<p>Ainda não tem cadastro? Cadastrar-se logo</p>
+				<form action="">
+					<div class="login__grupo">
+						<input class="form-control" id="login" type="text" name="login" placeholder="Login" required>
+					</div>
+				
+					<div class="login__grupo">
+						<input class="form-control" id="email" type="email" name="email" placeholder="E-mail" required>
+					</div>
+				
+					<div class="login__grupo">
+						<input class="form-control" id="senha1" type="password" name="senha1" placeholder="Senha" required>
+					</div>
+				
+					<div class="login__grupo">
+						<input class="form-control" id="senha2" type="password" name="senha2" placeholder="Confirmar Senha" required>
+					</div>
+					<input type="submit" class="login-btn" value="Cadastrar-se">
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+-->
+
+{%endblock%}

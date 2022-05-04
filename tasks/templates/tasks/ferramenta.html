@@ -1,0 +1,65 @@
+{%extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{item.nome}}{% endblock %}
+
+
+{%block content %}
+<div class="container-fluid">
+	<!-- Filtros -->
+<div id="filters">
+	<div class="container">
+		<div class="row">
+			
+			<div class="col-md-8">
+				<div class="produto-text">
+				<h4>{{ item.nome }}</h4>
+				<p>{{ item.description }}</p>
+				<div class="valor">
+					<div class="row">
+						<div class="col-sm">
+							<h3>R${{item.valor}}</h3>
+						</div>
+						<div class="col-sm">
+							<label for="tentacles">Quantidade:</label>
+							<input type="number" id="tentacles" name="tentacles"
+								min="1" max="{{ item.quantidade }}" value="1">
+						</div>
+						<div class="col-sm">
+							<button class="main-btn" id="filter-btn">Comprar</button>
+						</div>
+					</div>
+				</div>
+				
+				</div>
+				<div class="col-md-12">
+					<div class="produto-img-desc">
+						<img src="{{ item.imagen.url }}" alt="error" />
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+<div id="sugeridos">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h3  class="main-title">Sugestão</h3>
+			</div>
+			{% for items in items %}
+			<div class="col-md-3">
+				<a href="/ferramenta/{{items.id}}/{{items.tipo}}">
+				<div class="moto-img">
+					<img src="{{ items.imagen.url }}" alt="error">
+					<p>{{ items.nome }}</p>
+				</div>
+				</a>
+			</div>
+			{% endfor %}
+
+		</div>
+	</div>
+</div>
+{%endblock%}
